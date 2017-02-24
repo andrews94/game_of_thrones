@@ -1,0 +1,6 @@
+<%= form_for [@house, @character]  do |character_form| %>
+ Name: <%= character_form.text_field :name %>
+ Title: <%= character_form.text_field :title %>
+ <%= character_form.button %>
+
+ <% end %>

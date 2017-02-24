@@ -1,0 +1,7 @@
+<h1>The Characters</h1>
+<% @characters.each do |character| %>
+<div>
+ <h2><%= link_to character.name, character_path(character) %> - <%= House.find(character.house_id).name %></h2>
+
+<% end %>
+</div>

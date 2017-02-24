@@ -1,0 +1,5 @@
+<h1><%= @character.name %></h1>
+<h3><%= House.find(@character.house_id).name %></h3>
+<div class="character">
+ <%= image_tag @character.img_url %>
+</div>

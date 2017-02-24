@@ -1,0 +1,8 @@
+<h1><%= @house.name %></h1>
+<% @house.characters.each do |character| %>
+<div class="character">
+ <li>
+   <%= character.name %>
+ </li>
+</div>
+<% end %>
