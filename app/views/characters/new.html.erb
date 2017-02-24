@@ -1,7 +1,15 @@
-<h2><%= @house.name %></h2>
- <%= form_for([@house, @house.characters.build]) do |character_form| %>
- Name: <%= character_form.text_field :name %>
- Title: <%= character_form.text_field :title %>
- <%= character_form.button %>
+<h2>New Character</h2>
 
- <% end %>
+<%= form_for @character do |f| %>
+ <%= f.label :name %>
+ <%= f.text_field :name %>
+
+ <%= f.label :Image %>
+ <%= f.text_field :img_url %>
+
+
+ <%= f.select(:house, options_for_select(@house_house))%>
+
+
+ <%= f.submit %>
+<% end %>

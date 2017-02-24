@@ -1,5 +1,7 @@
-<h1><%= @character.name %></h1>
+<h2><%= @character.name %></h2>
 <h3><%= House.find(@character.house_id).name %></h3>
+<%= link_to "Edit Character", edit_character_path(@character) %>
+<%= link_to "Delete Post", character_path(@character), method: :delete %>
 <div class="character">
  <%= image_tag @character.img_url %>
 </div>

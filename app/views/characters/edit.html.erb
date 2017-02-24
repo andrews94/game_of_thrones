@@ -1,6 +1,10 @@
-<%= form_for [@house, @character]  do |character_form| %>
- Name: <%= character_form.text_field :name %>
- Title: <%= character_form.text_field :title %>
- <%= character_form.button %>
+<h2>Edit Character</h2>
+<%= form_for @character do |f| %>
+ <%= f.label :name %>
+ <%= f.text_field :name %>
 
+ <%= f.label :Image %>
+ <%= f.text_field :img_url %>
+
+ <%= f.submit %>
  <% end %>

@@ -7,34 +7,38 @@ class CharactersController < ApplicationController
    @character = Character.find(params[:id])
  end
 
+ def edit
+   @character = Character.find(params[:id])
+ end
+
  def new
    @character = Character.new
+   @house_house = House.all.map{ |house| house.name}
  end
 
  def create
-     @house = House.find(params[:house_id])
-     @character = @house.characters.create!(character_params)
-     redirect_to @house
-end
+   @character = Character.new(character_params)
+   @character.house = House.find_by(name: params[:character][:house])
+   @character.save
+   redirect_to character_path(@character)
+ end
 
-def update
-   @house = House.find(params[:house_id])
+ def update
    @character = Character.find(params[:id])
    @character.update(character_params)
-   redirect_to house_path(@house)
+   redirect_to character_path(@character)
  end
 
  def destroy
-   @house = House.find(params[:house_id])
    @character = Character.find(params[:id])
    @character.destroy
-   redirect_to @house
+   redirect_to characters_path
  end
+
 
  private
 
  def character_params
-   params.require(:character).permit(:name, :house)
-
+   params.require(:character).permit(:name, :house_id, :img_url)
  end
 end
